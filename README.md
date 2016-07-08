@@ -4,10 +4,10 @@ It's still not feature complete, but it also isn't meant to be super complex and
 
 ## Gettings And Using The Calculator
 
-# Getting it
+### Getting it
 You will be able to get it in the near future as I will put up a release here on the repo.
 
-# Using it
+### Using it
 It's really simple; the program is essentially a form that takes a few datails about your current game state:
 * The amount of gold you have available
 * The day in the season you're currently on
@@ -25,4 +25,6 @@ But I will include a few express permissions and disclaimer here to clarify what
 * If and when I make it available, users may download and use a binary release of this tool at their discretion.
 * I CAN NOT AND WILL NOT BE HELD LIABLE TO ANY DAMAGE OR ISSUES THAT ARISE FROM USE OF THE SOURCE CODE, DOCUMENTATION, OR ANY AND ALL BINARY FILES INCLUDED IN THIS REPOSITORY.
 
-### Copyright 2016 Mattar Ariel Shaked
+
+
+Copyright 2016 Mattar Ariel Shaked
