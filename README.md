@@ -12,6 +12,7 @@ It's really simple; the program is essentially a form that takes a few datails a
 * The amount of gold you have available
 * The day in the season you're currently on
 * The season you're currently in
+
 Once those are filled in, click the 'Calculate' button, and a list of up to three crops, in descending order of preference, will be displayed to you.
 So just go and buy the closest crop to the top crop that you can, and buy as much of it as you can!
 Note that this tool doesn't take into account growth speed modifiers yet.
