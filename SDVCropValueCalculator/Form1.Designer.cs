@@ -53,23 +53,24 @@ namespace SDVCropValueCalculator
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 5F));
             this.tableLayoutPanel1.Controls.Add(this.moneyInputControlLabel, 1, 1);
-            this.tableLayoutPanel1.Controls.Add(this.dayDropDown, 2, 3);
-            this.tableLayoutPanel1.Controls.Add(this.seasonDropDown, 2, 4);
+            this.tableLayoutPanel1.Controls.Add(this.dayDropDown, 2, 2);
+            this.tableLayoutPanel1.Controls.Add(this.seasonDropDown, 2, 3);
             this.tableLayoutPanel1.Controls.Add(this.moneyInputControl, 2, 1);
-            this.tableLayoutPanel1.Controls.Add(this.prefCropLabel, 4, 1);
             this.tableLayoutPanel1.Controls.Add(this.cropLabel, 4, 2);
-            this.tableLayoutPanel1.Controls.Add(this.calcButton, 1, 5);
-            this.tableLayoutPanel1.Controls.Add(this.dayInputLabel, 1, 3);
-            this.tableLayoutPanel1.Controls.Add(this.seasonInputLabel, 1, 4);
+            this.tableLayoutPanel1.Controls.Add(this.calcButton, 1, 6);
+            this.tableLayoutPanel1.Controls.Add(this.dayInputLabel, 1, 2);
+            this.tableLayoutPanel1.Controls.Add(this.seasonInputLabel, 1, 3);
+            this.tableLayoutPanel1.Controls.Add(this.prefCropLabel, 4, 1);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 7;
+            this.tableLayoutPanel1.RowCount = 8;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 8.707865F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 21.06742F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 30F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 22.19101F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 8.426967F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 7.58427F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 28.93258F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 28.65169F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 7.58427F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(453, 356);
@@ -119,7 +120,7 @@ namespace SDVCropValueCalculator
             "26",
             "27",
             "28"});
-            this.dayDropDown.Location = new System.Drawing.Point(127, 126);
+            this.dayDropDown.Location = new System.Drawing.Point(127, 51);
             this.dayDropDown.Name = "dayDropDown";
             this.dayDropDown.Size = new System.Drawing.Size(104, 21);
             this.dayDropDown.TabIndex = 8;
@@ -135,7 +136,7 @@ namespace SDVCropValueCalculator
             "Summer",
             "Fall",
             "Winter"});
-            this.seasonDropDown.Location = new System.Drawing.Point(127, 233);
+            this.seasonDropDown.Location = new System.Drawing.Point(127, 81);
             this.seasonDropDown.Name = "seasonDropDown";
             this.seasonDropDown.Size = new System.Drawing.Size(104, 21);
             this.seasonDropDown.TabIndex = 9;
@@ -168,14 +169,15 @@ namespace SDVCropValueCalculator
             this.cropLabel.Location = new System.Drawing.Point(281, 51);
             this.cropLabel.Margin = new System.Windows.Forms.Padding(3);
             this.cropLabel.Name = "cropLabel";
-            this.cropLabel.Size = new System.Drawing.Size(145, 69);
+            this.tableLayoutPanel1.SetRowSpan(this.cropLabel, 4);
+            this.cropLabel.Size = new System.Drawing.Size(145, 256);
             this.cropLabel.TabIndex = 7;
             this.cropLabel.Text = "Press calculate to determine.";
             // 
             // calcButton
             // 
             this.tableLayoutPanel1.SetColumnSpan(this.calcButton, 4);
-            this.calcButton.Location = new System.Drawing.Point(25, 312);
+            this.calcButton.Location = new System.Drawing.Point(25, 313);
             this.calcButton.Name = "calcButton";
             this.calcButton.Size = new System.Drawing.Size(401, 21);
             this.calcButton.TabIndex = 10;
@@ -186,7 +188,7 @@ namespace SDVCropValueCalculator
             // dayInputLabel
             // 
             this.dayInputLabel.AutoSize = true;
-            this.dayInputLabel.Location = new System.Drawing.Point(25, 126);
+            this.dayInputLabel.Location = new System.Drawing.Point(25, 51);
             this.dayInputLabel.Margin = new System.Windows.Forms.Padding(3);
             this.dayInputLabel.Name = "dayInputLabel";
             this.dayInputLabel.Size = new System.Drawing.Size(29, 13);
@@ -196,7 +198,7 @@ namespace SDVCropValueCalculator
             // seasonInputLabel
             // 
             this.seasonInputLabel.AutoSize = true;
-            this.seasonInputLabel.Location = new System.Drawing.Point(25, 233);
+            this.seasonInputLabel.Location = new System.Drawing.Point(25, 81);
             this.seasonInputLabel.Margin = new System.Windows.Forms.Padding(3);
             this.seasonInputLabel.Name = "seasonInputLabel";
             this.seasonInputLabel.Size = new System.Drawing.Size(46, 13);
