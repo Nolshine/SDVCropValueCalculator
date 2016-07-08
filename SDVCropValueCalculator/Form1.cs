@@ -27,6 +27,8 @@ namespace SDVCropValueCalculator
         public int moneyOnHand;
         public int day;
         public SeasonEnum season;
+        public int fertilizerMod = 0;
+        public int perkMod = 0;
         public string recommendedCrop;
         public List<string[]> cropData;
 
@@ -108,7 +110,7 @@ namespace SDVCropValueCalculator
         /// </summary>
         /// <param name="seasonToCheck">The season to perform the check on</param>
         /// <returns></returns>
-        private string DetermineCrop(string seasonToCheck)
+        private string DetermineCrop(string seasonToCheck, int mod)
         {
             string currentCrop;
             int cost;
@@ -155,6 +157,7 @@ namespace SDVCropValueCalculator
 
                 // ascertain whether crop can be grown in the time left
                 daysToGrow = int.Parse(row[4]);
+                daysToGrow -= daysToGrow * mod / 100;
                 if (daysToGrow > daysLeftInSeason)
                 {
                     // not enough time left to grow crop.. don't process
@@ -181,6 +184,8 @@ namespace SDVCropValueCalculator
 
                 profitPerDay = (((salePrice - cost) * numberOfPlantings) /
                     daysLeftInSeason)*numberPlayerCanBuy;
+
+                currentCrop = numberPlayerCanBuy + " " + currentCrop;
 
                 bool biggerProfit = profitPerDay > profitChecked;
                 if (biggerProfit)
@@ -222,24 +227,55 @@ namespace SDVCropValueCalculator
         /// <param name="e"></param>
         private void calcButton_Click(object sender, EventArgs e)
         {
-            // declare vars to store data and results in while working
-            
+            // check modifier status
+            checkModifierStatus();
+            int totalMod = fertilizerMod + perkMod;
 
             // process information and return recommendation
             switch (season)
             {
                 case SeasonEnum.Spring:
-                    cropLabel.Text = DetermineCrop("Spring");
+                    cropLabel.Text = DetermineCrop("Spring", totalMod);
                     break;
                 case SeasonEnum.Summer:
-                    cropLabel.Text = DetermineCrop("Summer");
+                    cropLabel.Text = DetermineCrop("Summer", totalMod);
                     break;
                 case SeasonEnum.Fall:
-                    cropLabel.Text = DetermineCrop("Fall");
+                    cropLabel.Text = DetermineCrop("Fall", totalMod);
                     break;
                 case SeasonEnum.Winter:
                     cropLabel.Text = "Wild Seeds (Wi)";
                     break;
+            }
+        }
+
+        private void checkModifierStatus()
+        {
+            foreach (RadioButton rdoButton in radioGroup.Controls)
+            {
+                if(rdoButton.Checked)
+                {
+                    if (rdoButton.Name == "noGro")
+                    {
+                        fertilizerMod = 0;
+                    }
+                    else if (rdoButton.Name == "speedGro")
+                    {
+                        fertilizerMod = 10;
+                    }
+                    else if (rdoButton.Name == "deluxeGro")
+                    {
+                        fertilizerMod = 25;
+                    }
+                }
+                if(isAgriculturist.Checked)
+                {
+                    perkMod = 10;
+                }
+                else
+                {
+                    perkMod = 0;
+                }
             }
         }
     }
