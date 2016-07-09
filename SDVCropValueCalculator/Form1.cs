@@ -112,13 +112,18 @@ namespace SDVCropValueCalculator
         /// <returns></returns>
         private string DetermineCrop(string seasonToCheck, int mod)
         {
+            // declare variables used in the calculation.
             string currentCrop;
             int cost;
             int salePrice;
             int daysToGrow;
             int daysToRegrow;
 
+            // days left in season is simply the total days in a season, minus the day we're on.
+            // we don't need to include the current day because growth times don't take into
+            // account the day in which they were planted, as is stated on the wiki.
             int daysLeftInSeason = 28 - day;
+
             int numberPlayerCanBuy;
             int profitPerDay;
             int profitChecked = 0;
@@ -137,6 +142,15 @@ namespace SDVCropValueCalculator
 
                 // track the current crop's name
                 currentCrop = row[1];
+
+                // if the season is summer and the crop is corn,
+                // include an extra 28 days (a full season) in the time left
+                if(currentCrop == "Corn" && seasonToCheck == "Summer")
+                {
+                    // we repeated a check for season here,
+                    // but it's necessary because corn is a special case
+                    daysLeftInSeason += 28;
+                }
 
                 // check if any of it can be bought
                 cost = int.Parse(row[2]);
@@ -182,46 +196,76 @@ namespace SDVCropValueCalculator
                     numberOfPlantings += (daysLeftInSeason - daysToGrow) / daysToGrow;
                 }
 
+                // calculate the total profit per day the current crop can achieve.
                 profitPerDay = (((salePrice - cost) * numberOfPlantings) /
                     daysLeftInSeason)*numberPlayerCanBuy;
 
+                // store a possible result
                 currentCrop = numberPlayerCanBuy + " " + currentCrop;
 
+                // check if the current profit is bigger than the last checked,
+                // and store boolean result in a variable.
                 bool biggerProfit = profitPerDay > profitChecked;
+
+                // track the the profit currenly checked if its bigger than the previous,
+                // with the starting value being zero.
                 if (biggerProfit)
                 {
                     // store currently tracked profit
                     profitChecked = profitPerDay;
                 }
+
+                // if there are no crops in the top 3 list, add the current one.
                 if (resultList.Count == 0)
                 {
                     resultList.Add(currentCrop);
                 }
+                // otherwise, and if the current profit tracked was bigger thn the previous,
+                // add the current crop to the top of the list.
                 else if (biggerProfit)
                 {
                     resultList.Insert(0, currentCrop);
                 }
+                // if profit tracked ISN'T bigger than the previous one,
+                // add the current crop at the end of the list.
                 else
                 {
                     resultList.Add(currentCrop);
                 }
 
+                // TODO: check, on paper, whether this system works.
+
+                // finally, if the list is now larger than 3 items, truncate it.
+                // this if statement means the list NEVER grows bigger than 4 elements,
+                // so i only ever have to remove the element at index 3.
+                // It never grows any bigger than 4 elements because I remove the element
+                // at index 3 if it's got more than 3 elements in.
+                // lol @ logic
                 if (resultList.Count > 3)
                 {
                     resultList.RemoveAt(3);
                 }
             }
 
+            // at the start of the function, the result string is set to "No crop available".
+            // if in fact we found some crops the player could grow, then the result list
+            // would contain more than 0 elements.
             if (resultList.Count > 0)
             {
+                // if the result list is populated at all, meaning we found potential crops,
+                // then we replace the initil result string with a string containing all the
+                // results in the list, joined by a newline character, meaning you get them
+                // as a column of up to 3 crops.
                 result = "";
                 result = string.Join("\n", resultList);
             }
+
+            // return the result string.
             return result;
         }
 
         /// <summary>
-        /// calcultes the crop the user should use, if any
+        /// displays the crop the user should use, if any
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -249,6 +293,10 @@ namespace SDVCropValueCalculator
             }
         }
 
+        /// <summary>
+        /// Checks which growth speed modifiers are reported by the player in the form,
+        /// determining the total modifier value.
+        /// </summary>
         private void checkModifierStatus()
         {
             foreach (RadioButton rdoButton in radioGroup.Controls)
