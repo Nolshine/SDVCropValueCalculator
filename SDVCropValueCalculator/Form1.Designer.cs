@@ -46,6 +46,7 @@ namespace SDVCropValueCalculator
             this.noGro = new System.Windows.Forms.RadioButton();
             this.panel1 = new System.Windows.Forms.Panel();
             this.isAgriculturist = new System.Windows.Forms.CheckBox();
+            this.commentLabel = new System.Windows.Forms.Label();
             this.tableLayoutPanel1.SuspendLayout();
             this.radioGroup.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -57,8 +58,8 @@ namespace SDVCropValueCalculator
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 5F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.37931F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 17.24138F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 29.65517F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 26.37931F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 11.77249F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 44.44444F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 5F));
             this.tableLayoutPanel1.Controls.Add(this.moneyInputControlLabel, 1, 1);
             this.tableLayoutPanel1.Controls.Add(this.dayDropDown, 2, 2);
@@ -71,6 +72,7 @@ namespace SDVCropValueCalculator
             this.tableLayoutPanel1.Controls.Add(this.prefCropLabel, 4, 1);
             this.tableLayoutPanel1.Controls.Add(this.radioGroup, 1, 4);
             this.tableLayoutPanel1.Controls.Add(this.panel1, 1, 5);
+            this.tableLayoutPanel1.Controls.Add(this.commentLabel, 4, 5);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -83,7 +85,7 @@ namespace SDVCropValueCalculator
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 24.7191F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 7.58427F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(580, 356);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(582, 356);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // moneyInputControlLabel
@@ -166,11 +168,11 @@ namespace SDVCropValueCalculator
             // 
             this.cropLabel.AutoSize = true;
             this.cropLabel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.cropLabel.Location = new System.Drawing.Point(399, 48);
+            this.cropLabel.Location = new System.Drawing.Point(295, 48);
             this.cropLabel.Margin = new System.Windows.Forms.Padding(3);
             this.cropLabel.Name = "cropLabel";
-            this.tableLayoutPanel1.SetRowSpan(this.cropLabel, 4);
-            this.cropLabel.Size = new System.Drawing.Size(147, 259);
+            this.tableLayoutPanel1.SetRowSpan(this.cropLabel, 3);
+            this.cropLabel.Size = new System.Drawing.Size(253, 171);
             this.cropLabel.TabIndex = 7;
             this.cropLabel.Text = "Press calculate to determine.";
             // 
@@ -180,7 +182,7 @@ namespace SDVCropValueCalculator
             this.calcButton.Dock = System.Windows.Forms.DockStyle.Fill;
             this.calcButton.Location = new System.Drawing.Point(32, 313);
             this.calcButton.Name = "calcButton";
-            this.calcButton.Size = new System.Drawing.Size(514, 21);
+            this.calcButton.Size = new System.Drawing.Size(516, 21);
             this.calcButton.TabIndex = 10;
             this.calcButton.Text = "Calculate!";
             this.calcButton.UseVisualStyleBackColor = true;
@@ -209,7 +211,7 @@ namespace SDVCropValueCalculator
             // prefCropLabel
             // 
             this.prefCropLabel.AutoSize = true;
-            this.prefCropLabel.Location = new System.Drawing.Point(399, 20);
+            this.prefCropLabel.Location = new System.Drawing.Point(295, 20);
             this.prefCropLabel.Margin = new System.Windows.Forms.Padding(3);
             this.prefCropLabel.Name = "prefCropLabel";
             this.prefCropLabel.Size = new System.Drawing.Size(78, 13);
@@ -266,6 +268,7 @@ namespace SDVCropValueCalculator
             // 
             this.tableLayoutPanel1.SetColumnSpan(this.panel1, 2);
             this.panel1.Controls.Add(this.isAgriculturist);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(32, 225);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(189, 82);
@@ -281,11 +284,19 @@ namespace SDVCropValueCalculator
             this.isAgriculturist.Text = "Agriculturist Perk?";
             this.isAgriculturist.UseVisualStyleBackColor = true;
             // 
+            // commentLabel
+            // 
+            this.commentLabel.AutoSize = true;
+            this.commentLabel.Location = new System.Drawing.Point(295, 222);
+            this.commentLabel.Name = "commentLabel";
+            this.commentLabel.Size = new System.Drawing.Size(0, 13);
+            this.commentLabel.TabIndex = 14;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(580, 356);
+            this.ClientSize = new System.Drawing.Size(582, 356);
             this.Controls.Add(this.tableLayoutPanel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.MaximizeBox = false;
@@ -320,6 +331,7 @@ namespace SDVCropValueCalculator
         private System.Windows.Forms.RadioButton noGro;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.CheckBox isAgriculturist;
+        private System.Windows.Forms.Label commentLabel;
     }
 }
 
