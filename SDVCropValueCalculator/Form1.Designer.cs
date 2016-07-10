@@ -46,6 +46,7 @@ namespace SDVCropValueCalculator
             this.noGro = new System.Windows.Forms.RadioButton();
             this.panel1 = new System.Windows.Forms.Panel();
             this.isAgriculturist = new System.Windows.Forms.CheckBox();
+            this.commentLabel = new System.Windows.Forms.Label();
             this.tableLayoutPanel1.SuspendLayout();
             this.radioGroup.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -71,6 +72,7 @@ namespace SDVCropValueCalculator
             this.tableLayoutPanel1.Controls.Add(this.prefCropLabel, 4, 1);
             this.tableLayoutPanel1.Controls.Add(this.radioGroup, 1, 4);
             this.tableLayoutPanel1.Controls.Add(this.panel1, 1, 5);
+            this.tableLayoutPanel1.Controls.Add(this.commentLabel, 4, 5);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -169,8 +171,8 @@ namespace SDVCropValueCalculator
             this.cropLabel.Location = new System.Drawing.Point(399, 48);
             this.cropLabel.Margin = new System.Windows.Forms.Padding(3);
             this.cropLabel.Name = "cropLabel";
-            this.tableLayoutPanel1.SetRowSpan(this.cropLabel, 4);
-            this.cropLabel.Size = new System.Drawing.Size(147, 259);
+            this.tableLayoutPanel1.SetRowSpan(this.cropLabel, 3);
+            this.cropLabel.Size = new System.Drawing.Size(147, 171);
             this.cropLabel.TabIndex = 7;
             this.cropLabel.Text = "Press calculate to determine.";
             // 
@@ -281,6 +283,14 @@ namespace SDVCropValueCalculator
             this.isAgriculturist.Text = "Agriculturist Perk?";
             this.isAgriculturist.UseVisualStyleBackColor = true;
             // 
+            // commentLabel
+            // 
+            this.commentLabel.AutoSize = true;
+            this.commentLabel.Location = new System.Drawing.Point(399, 222);
+            this.commentLabel.Name = "commentLabel";
+            this.commentLabel.Size = new System.Drawing.Size(0, 13);
+            this.commentLabel.TabIndex = 14;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -320,6 +330,7 @@ namespace SDVCropValueCalculator
         private System.Windows.Forms.RadioButton noGro;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.CheckBox isAgriculturist;
+        private System.Windows.Forms.Label commentLabel;
     }
 }
 

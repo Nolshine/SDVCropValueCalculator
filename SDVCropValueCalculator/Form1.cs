@@ -152,6 +152,13 @@ namespace SDVCropValueCalculator
                     daysLeftInSeason += 28;
                 }
 
+                if(currentCrop == "Sweet Gem Berry")
+                {
+                    currentCrop = "Sweet Gem Berry*";
+                    commentLabel.Text = "* seeds have to be bought during spring or summer " +
+                        "from the merchant on thursdays or sundays.";
+                }
+
                 // check if any of it can be bought
                 cost = int.Parse(row[2]);
                 if (cost > moneyOnHand)
@@ -201,7 +208,7 @@ namespace SDVCropValueCalculator
                     daysLeftInSeason)*numberPlayerCanBuy;
 
                 // store a possible result
-                currentCrop = numberPlayerCanBuy + " " + currentCrop;
+                string currentCropResult = numberPlayerCanBuy + " " + currentCrop;
 
                 // check if the current profit is bigger than the last checked,
                 // and store boolean result in a variable.
@@ -218,19 +225,19 @@ namespace SDVCropValueCalculator
                 // if there are no crops in the top 3 list, add the current one.
                 if (resultList.Count == 0)
                 {
-                    resultList.Add(currentCrop);
+                    resultList.Add(currentCropResult);
                 }
                 // otherwise, and if the current profit tracked was bigger thn the previous,
                 // add the current crop to the top of the list.
                 else if (biggerProfit)
                 {
-                    resultList.Insert(0, currentCrop);
+                    resultList.Insert(0, currentCropResult);
                 }
                 // if profit tracked ISN'T bigger than the previous one,
                 // add the current crop at the end of the list.
                 else
                 {
-                    resultList.Add(currentCrop);
+                    resultList.Add(currentCropResult);
                 }
 
                 // TODO: check, on paper, whether this system works.
@@ -243,6 +250,11 @@ namespace SDVCropValueCalculator
                 // lol @ logic
                 if (resultList.Count > 3)
                 {
+                    // if the entry we're removing is a sweet gem, we'll remove the comment, too.
+                    if (resultList[3] == numberPlayerCanBuy + " Sweet Gem Berry*")
+                    {
+                        commentLabel.Text = "";
+                    }
                     resultList.RemoveAt(3);
                 }
             }
